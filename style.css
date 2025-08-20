@@ -1,7 +1,106 @@
+/* --- Responsive Adjustments --- */
+@media (max-width: 1000px) {
+  .nav-bar-fill ul {
+    gap: 8px; /* shrink spacing */
+  }
+}
+
+@media (max-width: 800px) {
+  .nav-bar-fill  {
+    /* 👇 instead of hiding items, allow scrolling */
+    /* display: none; hide all items on smaller screens */
+    overflow-x: auto;  /*scroll horizontally instead of cutting text*/
+    scrollbar-width: none; /* Firefox hide scrollbar */
+    -ms-overflow-style: none; /* IE/Edge */
+    white-space: nowrap; /* 👈 prevent line break */
+  }
+  /* Chrome/Safari hide scrollbar */
+  .nav-bar-fill::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+  }
+  /* .nav-bar-fill::-webkit-scrollbar {
+    display: none;        Chrome/Safari hide scrollbar  
+  } */
+   /* hide only "extra" items */
+  /* .nav-bar-fill li.extra {
+    display: none;
+  } */
+  .nav-bar-right::before {
+    /* content: "☰ More"; */
+    cursor: pointer;
+    padding: 0 10px;
+    border: 1px solid transparent;
+  }
+  .nav-bar-right:hover::before {
+    border-color: white;
+  }
+}
+header {
+  background-color: #131921; /* Amazon dark blue */
+  color: white;
+}
 .nav-bar-full {
-    background-image: none;
-    background-color: #232f3e;
+    display: flex;
+    align-items: center;
+    height: 40px;        /* navbar height */
+    padding: 0px 20px;  /* remove vertical padding */
+    white-space: nowrap; /* prevent text wrap */
+}
+.nav-bar-left {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 14px;
+    font-weight: bold;
+    margin-right: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    padding: 0 10px;               /* spacing inside */
+    height: 100%;                 /* stretch full navbar height */
+    box-sizing: border-box;       /* include border in height */
+    border: 1px solid transparent;   /* border always there */
+}
+.nav-bar-left:hover {
+   border-color: white;      /* only border appears */
+  /* border: 2px solid white;      white border all around */
+  border-radius: 2px;
+  background-color: #232f3e;     /* Amazon-style hover shading */
+}
+.menu-icon {
+  font-size: 18px;
 }
 .nav-bar-fill {
-    display: contents;
+  flex: 1; /* take remaining space */
+  height: 100%;
+  overflow-y: hidden;   /* ✅ allow horizontal scroll on small screens */
+  /*overflow: hidden;*/   /* hides extra items */
+}
+.nav-bar-fill ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;  /* make items horizontal */
+  gap: 5px;      /* spacing between items */
+  height: 100%;   /* ul also full height */
+}
+.nav-bar-fill li {
+    display: flex;
+    align-items: center;  /* vertically center text */
+    cursor: pointer;
+    padding: 0px 10px;
+    font-size: 14px;
+    height: 100%;       /* li matches navbar height */
+    box-sizing: border-box;
+    border: 1px solid transparent;   /* border always there */
+    white-space: nowrap; /* prevent breaking text */
+}
+.nav-bar-fill li:hover {
+    border-color: white;
+  /* border: 2px solid white; */
+  border-radius: 2px;
+  background-color: #232f3e;     /* Amazon hover background */
+}
+.nav-bar-right {
+  margin-left: auto;
 }
